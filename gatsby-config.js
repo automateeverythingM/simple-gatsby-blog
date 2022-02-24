@@ -3,6 +3,9 @@ module.exports = {
   siteMetadata: {
     title: `Simple Blog Site`,
     siteUrl: `https://gatsbytutsimpleblog.gatsbyjs.io/`,
+    description: `Fallowing Gatsby tutorial`,
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-source-filesystem"],
+  plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sharp", {
+    resolve: `gatsby-source-filesystem`, options: { name:"blog", path:`${__dirname}/blog`}
+  }],
 };
