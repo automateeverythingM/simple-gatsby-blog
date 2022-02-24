@@ -5,7 +5,14 @@ module.exports = {
     siteUrl: `https://gatsbytutsimpleblog.gatsbyjs.io/`,
     description: `Fallowing Gatsby tutorial`,
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sharp", {
-    resolve: `gatsby-source-filesystem`, options: { name:"blog", path:`${__dirname}/blog`}
-  }],
+  plugins: [
+    "gatsby-plugin-sass",
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: { name: "blog", path: `${__dirname}/blog` },
+    },
+    { resolve: `gatsby-plugin-mdx`, options: { extension: ["mdx", ".md"] } },
+  ],
 };
