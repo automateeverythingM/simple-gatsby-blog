@@ -1,8 +1,8 @@
 /** @type {import('gatsby).GatsbyConfig} */
 module.exports = {
   siteMetadata: {
-      title: `new`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Simple Blog Site`,
+    siteUrl: `https://gatsbytutsimpleblog.gatsbyjs.io/`,
   },
-  plugins: ["gatsby-plugin-sass"]
+  plugins: ["gatsby-plugin-sass", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-source-filesystem"],
 };
