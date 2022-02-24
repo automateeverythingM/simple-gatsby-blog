@@ -39,7 +39,7 @@ export const Layout = ({ pageTitle, children }: ILayoutProps) => {
             <Link className={navLinkText} to="/blog">Blog</Link>
           </li>
           <li className={navLinkItem}>
-            <Link className={navLinkText} to="/">
+            <Link className={navLinkText} to="/about">
               About
             </Link>
           </li>

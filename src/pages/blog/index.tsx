@@ -1,7 +1,7 @@
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
-import { Layout } from "../components";
+import { Layout } from "../../components";
 
 interface IBlogProps {
   data: { allMdx: { nodes: blog[] } };
@@ -12,25 +12,23 @@ type blog = {
     name: string;
     date: string;
   };
-  body: any;
+  slug: any;
   id: string;
 };
 
 const Blog = ({ data }: IBlogProps) => {
-  console.log("🚀 ~ file: blog.tsx ~ line 15 ~ Blog ~ data", data);
-  // const data = useStaticQueryy();
   return (
     <Layout pageTitle="My Blog Posts">
       <p>My cool posts will go in here</p>
-      <ul>
-        {data.allMdx.nodes.map((data) => (
-          <li key={data.id}>
+      {data.allMdx.nodes.map((data) => (
+        <article key={data.id}>
+          <Link to={data.slug}>
             <h3>{data.frontmatter?.name}</h3>
-            <div>{data.frontmatter?.date}</div>
-            <MDXRenderer>{data.body}</MDXRenderer>
-          </li>
-        ))}
-      </ul>
+          </Link>
+          <p>Posted: {data.frontmatter?.date}</p>
+        </article>
+      ))}
+      S{" "}
     </Layout>
   );
 };
@@ -46,7 +44,7 @@ export const query = graphql`
           date(formatString: "DD-MMMM-YYYY")
         }
         id
-        body
+        slug
       }
     }
   }
